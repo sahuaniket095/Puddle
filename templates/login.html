@@ -1,0 +1,56 @@
+{% extends "Base2.html" %}
+{% block content %}
+
+<div class=" flex justify-center h-14 py-4 mt-8">
+    <h5 class="text-cyan-800 text-6xl font-bold">Puddle</h5>
+</div>
+<br>
+<div class=" h-screen flex justify-end">
+    <img src="static/dist/q14.jpg" alt="" class="-mt-2">
+    <div class="bg-white p-8 rounded w-3/5">
+        <h2 class="text-2xl  mb-6 text-cyan-800 font-bold">Login</h2>
+        <form method="post" >
+          {% csrf_token %}
+
+       {% if form.errors or form.non_field_errors %}
+            
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+
+              {% for i in form  %}
+              <strong class="font-bold">{{i.errors}}</strong>
+              {% endfor %}
+            {{form.non_field_errors}}
+          </div>        
+          
+          {% endif %} 
+
+
+
+     <div class="mb-4 shadow-2xl">
+            <label for="username" class="block text-cyan-800 text-sm font-bold mb-2">Username</label>             
+            {{form.username}}
+        </div>
+          
+            <div class="mb-4 shadow-2xl">
+                <label for="password" class="block text-cyan-800 text-sm  mb-2 font-bold">Password</label>
+               {{form.password}}
+            </div> 
+
+          
+        
+            <button type="submit" class="bg-cyan-800 font-bold hover:bg-yellow-400 text-yellow-400 hover:text-cyan-800 py-2 px-4 rounded ">Login</button>
+        </form>
+        <p class="text-gray-600 mt-4 font-bold"> Have no account? <a href="/signup" class="text-cyan-800 font-bold">Sign Up</a></p>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puddle</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+
+<body class="bg-white ">
+    
+    <nav class="bg-yellow-400 fixed top-0 w-full z-10">
+        <ul class="flex justify-around py-2">
+            <li class="mr-2">
+                <a href="/Home" class="text-cyan-800 text-xl  hover:cursor-pointer font-bold">Home</a>
+            </li>
+           
+            {% if request.user.is_authenticated %}
+            <li class="mr-2">
+                <a href="/items/" class="text-cyan-800 text-xl  hover:cursor-pointer font-bold">Browse</a>
+            </li>
+            <li class="mr-2">
+                <a href="{% url 'item:new' %}" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Sell</a>
+            </li>
+            <li class="mr-2">
+                <a href="{% url 'conversation:inbox' %}" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Inbox</a>
+            </li>
+            <li class="mr-2">
+                <a href="{% url 'dashboard:dashboard' %}" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Dashboard</a>
+            </li>
+            {% else %}
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl  hover:cursor-pointer font-bold">Browse</a>
+            </li>
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Sell</a>
+            </li>
+            <li class="mr-2">
+                <a href="/signup" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Signup</a>
+            </li>
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Login</a>
+            </li>
+            {% endif %}
+       <!--    <li class="mr-2">
+                <a href="/logout" class="text-red-200 text-lg font-semibold hover:text-white cursor-pointer">Logout</a>
+            </li>
+            <li class="mr-2">
+                <a href="/signin" class="text-red-200 text-lg font-semibold hover:text-white cursor-pointer">Sign up</a>
+            </li>
+            <li>
+                <a href="/login" class="text-red-200 text-lg font-semibold hover:text-white cursor-pointer">Log in</a>
+            </li> -->
+          
+        </ul>
+    </nav>
+    
+  
+  
+   
+    <hr class="border-t-2 border-gray-200 mt-4">
+
+    <div>
+        <div class="flex align-baseline">
+            <div class="flex flex-col justify-center py-4 px-5">
+                <h5 class="text-cyan-800 text-6xl font-bold">Puddle</h5>
+                
+                <div class="pt-6 text-2xl opacity-65 font-bold">
+                    "Empower your transactions, embrace possibilities.  Unleash the marketplace where dreams find their buyers and sellers unite in a symphony of commerce. Connect, exchange, and redefine value in our dynamic marketplace – where every transaction tells a story and every purchase creates a journey."
+                </div>
+            </div>
+            
+    
+         <img src="static/dist/q2.jpg" class="h-2/3 w-2/5">           
+           
+         </div>
+    </div>
+
+    <hr class="border-t-2 border-gray-200">
+    <div>
+        <div class="flex align-baseline">
+            <img src="static/dist/q1.jpg" class="h-2/3 w-2/5">           
+           
+            <div class="flex flex-col justify-center py-4 px-5">
+                <h5 class="text-cyan-800 text-6xl  font-bold">Welcome to Puddle -
+                 
+                     Your Marketplace for Buying and Selling! </h5>
+                
+                <div class="pt-6 text-2xl opacity-65 font-bold">
+                    "Discover the convenience of buying and selling pre-loved items with Puddle. We've created a user-friendly space where you can easily find what you're looking for or turn your unused items into someone else's treasure. "
+                </div>
+            </div>
+            
+    
+         
+         </div>
+    </div>
+
+
+
+<hr class="border-t-2 border-gray-200">
+<div class=" flex justify-center h-14 py-3">
+    <h5 class="text-cyan-800 text-6xl  font-bold">Explore</h5>
+</div>
+<div class="flex ">
+    <div class="flex flex-col px-5">
+        <div class=" text-2xl opacity-65 font-bold  px-5 py-5">
+            <br>
+            <br>
+           "Explore a vast range of categories, from electronics and furniture to vehicles and accessories. Whether you're on the hunt for a great deal or ready to declutter to your home. Puddle is your go-to destination."          
+        </div>
+        <br>
+        <div class="px-5">
+            <a href="/items/">  
+                <button class="bg-cyan-800 hover:bg-yellow-400 text-yellow-400 hover:text-cyan-800 px-6 py-3 font-bold rounded-full">Explore now</button>
+            </a>
+        </div>
+    </div>
+  
+   
+   <img src="static/dist/q3.jpg" alt="" class="w-4/5 pt-6">
+</div>
+
+
+
+
+
+                            <!--box 1-->  
+
+<hr class="border-t-2 border-gray-200">
+
+ <div class=" flex flex-col justify-start h-14 ">
+    <h3 class="text-cyan-800 text-3xl py-4 px-5 pt-6  font-bold">What is Puddle?</h3>
+  
+    <div class="opacity-65 font-bold  py-1 px-5 ">
+        Puddle Marketplace is an online market that users can access right within Puddle. The marketplace was launched in 2016 and primarily focused on connecting local buyers and sellers.
+
+        The original structure was similar to that of other local marketplaces like Craigslist. Users could browse products from sellers in their local regions and contact them directly to arrange a sale.
+        
+        Payment took place off the platform, either in person at the time of exchange or through some other online method prior to the two parties meeting.
+ </div>
+ <br>
+                              <!--box 2-->  
+
+
+ <hr class="border-t-2 border-gray-200">
+ <h3 class="text-cyan-800 text-3xl py-4 px-5 pt-6  font-bold">How does Puddle Marketplace work?</h3> 
+ <div class="opacity-65 font-bold py-1 px-5 ">
+    Puddle Marketplace functions similarly to other online markets.
+<br>
+    1. Sellers create their account and list items for sale.  
+    When buyers navigate to Puddle Marketplace, they see a collection of nearby items currently available for sale.
+   <br> 
+    2. Buyers can search for something specific by tapping on the search icon and entering a keyword in the search bar. 
+    The sidebar also contains a section for categories as well as links to dashboard and messenger inbox.
+    <br> 
+    3.When buyers are interested in purchasing a product, they can communicate with the seller directly by sending a message through Puddle Messenger.
+</div>
+ 
+   
+ <br>
+ <hr class="border-t-2 border-gray-200">
+ <h3 class="text-cyan-800 text-3xl py-4 px-5 pt-6  font-bold">Should you use Puddle Marketplace?</h3>
+  
+ <div class="opacity-65 font-bold py-1 px-5 ">
+    If you are looking to expand your business to new sales channels, Puddle Marketplace is a great option.
+
+    Unlike other local online markets, Puddle Marketplace is safe to use as you can engage with potential buyers directly in the trusted Puddle platform. 
+    Unlike most other third-party marketplaces, Puddle Marketplace allows sellers to create listings and sell products without fees. This makes Marketplace a cost-effective sales channel for expanding your reach to get in front of your target buyers.
+ </div>   
+
+
+ 
+   <br>
+  
+ 
+<div class="flex flex-col ">
+    <div class="flex flex-row px-5 pt-5 justify-between bg-yellow-400">
+       
+        <div class="flex flex-col">
+            <div class=" h-4/6 text-cyan-800 text-2xl  font-bold">Company</div>
+            <div class="text-cyan-800 font-medium">Careers</div>
+            <div class="text-cyan-800 font-medium">Team</div>
+            <div class="text-cyan-800 font-medium">About us</div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Contact</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Help & Support</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Partner with us</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Ride with us</div>
+           <br>
+           <br>
+           <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Legal</div>           
+            <div class="text-cyan-800 cursor-pointer font-medium">Terms & Conditions</div>    
+            <div class="text-cyan-800 cursor-pointer font-medium">Privacy Policy</div>
+            <div class="text-cyan-800 cursor-pointer font-medium">Cookie Policy</div>
+            <div class="text-cyan-800 cursor-pointer font-medium">Offer terms</div>
+            <br>
+            <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Social Media</div>
+            <div class="text-cyan-800 font-medium">facebook</div>
+            <div class="text-cyan-800 font-medium">Instagram</div>
+            <div class="text-cyan-800 font-medium" >twitter</div>
+            <div class="text-cyan-800 font-medium">youtube</div>
+            <br>
+            <br>
+        </div>
+    </div>   
+    
+    <div class="bg-yellow-400 px-5 -mt-12 text-cyan-800 font-bold">
+        
+    <br>
+    Elevate your buying, amplify your selling. In our marketplace, transactions are not just exchanges; they are the building blocks of success stories.
+    <br>
+        <br>
+    </div>
+    
+    
+</div>
+
+
+
+</body>
+
+</html>

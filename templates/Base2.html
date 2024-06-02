@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puddle</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+
+
+<body class="bg-white scrollbar-hidden overflow-y-scroll">
+    
+    <nav class="bg-yellow-400 fixed top-0 w-full z-10">
+        <ul class="flex justify-around py-2">
+            <li class="mr-2">
+                <a href="/Home" class="text-cyan-800 text-xl  hover:cursor-pointer font-bold">Home</a>
+            </li>
+            
+            {% if request.user.is_authenticated %}
+            <li class="mr-2">
+                <a href="/items/" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Browse</a>
+            </li>
+            <li class="mr-2">
+                <a href="{% url 'item:new' %}" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Sell</a>
+            </li>
+            <li class="mr-2">
+                <a href="{% url 'conversation:inbox' %}" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Inbox</a>
+            </li>
+            <li class="mr-2">
+                <a href="/dashboard" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Dashboard</a>
+            </li>
+            {% else %}
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl  hover:cursor-pointer font-bold">Browse</a>
+            </li>
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Sell</a>
+            </li>
+            <li class="mr-2">
+                <a href="/signup" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Signup</a>
+            </li>
+            <li class="mr-2">
+                <a href="/login" class="text-cyan-800 text-xl font-bold hover:cursor-pointer">Login</a>
+            </li>
+            {% endif %}
+       <!--    <li class="mr-2">
+                <a href="/logout" class="text-red-200 text-lg font-bold hover:text-white cursor-pointer">Logout</a>
+            </li>
+            <li class="mr-2">
+                <a href="/signin" class="text-red-200 text-lg font-bold hover:text-white cursor-pointer">Sign up</a>
+            </li>
+            <li>
+                <a href="/login" class="text-red-200 text-lg font-bold hover:text-white cursor-pointer">Log in</a>
+            </li> -->
+          
+        </ul>
+    </nav>
+    
+    {% block content %}
+    
+    {% endblock content %}
+  
+   
+  
+ 
+   <br>
+  
+ 
+<div class="flex flex-col ">
+    <div class="flex flex-row px-5 pt-5 justify-between bg-yellow-400">
+       
+        <div class="flex flex-col">
+            <div class=" h-4/6 text-cyan-800 text-2xl font-bold">Company</div>
+            <div class="text-cyan-800 font-medium">Careers</div>
+            <div class="text-cyan-800 font-medium">Team</div>
+            <div class="text-cyan-800 font-medium">About us</div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Contact</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Help & Support</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Partner with us</div>
+            <div class=" text-cyan-800 cursor-pointer font-medium">Ride with us</div>
+           <br>
+           <br>
+           <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Legal</div>           
+            <div class="text-cyan-800 cursor-pointer font-medium">Terms & Conditions</div>    
+            <div class="text-cyan-800 cursor-pointer font-medium">Privacy Policy</div>
+            <div class="text-cyan-800 cursor-pointer font-medium">Cookie Policy</div>
+            <div class="text-cyan-800 cursor-pointer font-medium">Offer terms</div>
+            <br>
+            <br>
+        </div>
+        <div class="flex flex-col">
+            <div class="h-4/6 text-cyan-800 text-2xl font-bold">Social Media</div>
+            <div class="text-cyan-800 font-medium">facebook</div>
+            <div class="text-cyan-800 font-medium">Instagram</div>
+            <div class="text-cyan-800 font-medium">twitter</div>
+            <div class="text-cyan-800 font-medium">youtube</div>
+            <br>
+            <br>
+        </div>
+    </div>   
+    
+    <div class="bg-yellow-400 px-5 -mt-12 text-cyan-800 font-bold">
+        
+    <br>
+    Elevate your buying, amplify your selling. In our marketplace, transactions are not just exchanges; they are the building blocks of success stories.
+    <br>
+        <br>
+    </div>
+    
+    
+</div>
+
+
+
+</body>
+</html>
