@@ -1,0 +1,67 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<div class=" flex justify-center h-14 py-4 mt-8">
+    <h5 class="text-cyan-800 text-6xl font-bold">Puddle</h5>
+</div>
+<div class="  justify-end">
+    
+    <div class="bg-white p-8 rounded ">
+        <h2 class="text-2xl  mb-6 text-cyan-800 font-bold">Inbox</h2>
+
+        <div class="space-y-6">
+            {% for conversation in  conversations %}
+
+            <a href="{% url 'conversation:detail' conversation.id %}">
+                  <div class=" flex bg-gray-100 rounded-xl">
+                    
+                    <div class="pr-6">
+                        <img src="{{conversation.item.image.url}}" alt="" class="w-40 rounded-xl">                   
+                    </div>
+                    <div>
+                        {% for member in conversation.members.all  %}
+                        {% if member != request.user %}
+                        <p class="mb-4 text-cyan-800"><strong>{{member.username}}</strong> | {{conversation.modified_at}}</p>
+                        <p class="text-cyan-800">{{conversation.item.name}}</p>
+                        {% endif %}
+                        {% endfor %}    
+                    </div>
+
+                </div>
+
+            </a>
+            <br>
+            {% endfor %}
+
+          
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+

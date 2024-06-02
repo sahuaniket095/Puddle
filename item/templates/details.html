@@ -1,0 +1,77 @@
+{% extends "Base2.html" %}
+
+
+
+{% block content %}
+
+<div class="grid grid-cols-6 gap-6 mt-8 p-6">
+
+<div class="col-span-3">
+
+<img src="{{item.image.url}}" class="rounded-xl">
+</div>
+<div class="col-span-3 p-6 bg-gray-200 rounded-xl">
+   
+        
+    <h1 class="mb-6 text-3xl font-bold text-cyan-800">{{item.name}}</h1>
+    <p class="text-cyan-800 font-bold">Price : ₹{{item.price}}</p>
+    <p class="text-cyan-800 font-bold">Seller : {{item.created_by.username}}</p>
+    <p class="text-cyan-800 font-bold">Description : {{item.description}}</p>
+       
+       
+    {% if request.user == item.created_by %}
+    <div class="flex justify-around">
+    <a href="{% url 'item:delete' item.id %}">
+        <button type="submit" class="bg-cyan-800 hover:bg-yellow-400 text-yellow-400 hover:text-cyan-800 py-2 px-4 rounded font-bold mt-14 w-24">Delete</button>
+        </a>
+       
+    <a href="{% url 'item:edit' item.id %}">
+        <button type="submit" class="bg-cyan-800 hover:bg-yellow-400 text-yellow-400 hover:text-cyan-800 py-2 px-4 rounded font-bold mt-14 w-24">Edit</button>
+        </a>
+    </div>
+    {% else %}
+    <a href="{% url 'conversation:new' item.id %}">
+    <button type="submit" class="bg-cyan-800 hover:bg-yellow-400 text-yellow-400 hover:text-cyan-800 py-2 px-4 rounded font-bold mt-10">Contact Seller</button>
+    </a>
+    {% endif %}
+   
+</div>
+</div>
+ {% if related_item %}
+<hr class="border-t-2 border-gray-200">
+<div class=" flex justify-center h-14 py-3 mb-6">
+    <h5 class="text-cyan-800 text-6xl  font-bold">Related Items</h5>
+</div>
+
+<div class="container mx-auto mt-2 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        <!-- Product Card -->
+        {% for i in related_item %}
+        <a href="{% url 'item:detail' i.id %}">
+        <div class="bg-white p-6 rounded-lg transition-transform transform hover:-translate-y-2 shadow-2xl">
+            <img src="{{i.image.url}}" alt="Product Image" class="w-full h-48 object-cover mb-4 rounded-md">
+            <h2 class="text-xl font-bold mb-2 text-cyan-800">{{i.name}}</h2>
+           
+            <p class="text-cyan-800 mb-4 font-bold">Price : ₹{{i.price}}</p>
+           
+           
+        </div>
+    </a>
+        {% endfor %}
+        <!-- Repeat similar blocks for other products -->
+
+    </div>
+</div>
+{% endif %}
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
